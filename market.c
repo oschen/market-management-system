@@ -104,7 +104,7 @@ void dis_all()
 	{
 		printf("---------------------------------\n");
 		printf("display goods:\n");
-		printf("%s%7s%7.2f%8d\n",goods[i].id,goods[i].brand,goods[i].out_price,goods[i].storage);
+		printf("%3s%10s%7.2f%8d\n",goods[i].id,goods[i].brand,goods[i].out_price,goods[i].storage);
 
 	}
 	fclose(fp);
@@ -219,7 +219,7 @@ void add()
 				break;
 			}
 		}
-		if(i==NUM)
+		if(i==goodsnum)
 			printf("good is not found in reposit\n");
 		fclose(fp);
 		printf("continue to add?(Y/N)");
@@ -310,6 +310,6 @@ void calculate()
 		printf("open file fail.\n");
 		return;
 	}
-	fwrite(goods,sizeof(struct item),NUM,fp);
+	fwrite(goods,sizeof(struct item),goodsnum,fp);
 	fclose(fp);
 }
